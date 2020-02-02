@@ -10,11 +10,16 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Posts list!</h2>
-      {posts && posts.length > 0 && posts.map(post => <div>{post.title}</div>)}
+      <h2>Posts list using redux hook!</h2>
+      {posts &&
+        posts.length > 0 &&
+        posts.map(post => <div key={post.title}>{post.title}</div>)}
       <button
         onClick={() =>
-          disparch({ type: ADD_POST, payload: { title: "NEW TITLE" } })
+          disparch({
+            type: ADD_POST,
+            payload: { title: `NEW RANDOM POST ${Date.now()}` }
+          })
         }
       >
         ADD
